@@ -1,0 +1,127 @@
+version: "3"
+services:
+  smartvote-api-0:
+    container_name: smartvote-api-0
+    build: api
+    image: michaelrk02/smartvote-api:v1.0.2-3
+    environment:
+      APP_PORT: 8080
+      APP_ID: 0
+      DB_HOST: smartvote-db-0
+      DB_NAME: smartvote
+      DB_USERNAME: root
+      DB_PASSWORD: smartvote
+    ports:
+      - 8080:8080
+    networks:
+      - smartvote
+  smartvote-db-0:
+    container_name: smartvote-db-0
+    image: mariadb:11.5.2-noble
+    volumes:
+      - ./db/data-0:/var/lib/mysql:Z
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_ROOT_PASSWORD: smartvote
+    ports:
+      - 33060:3306
+    networks:
+      - smartvote
+
+  smartvote-api-1:
+    container_name: smartvote-api-1
+    build: api
+    image: michaelrk02/smartvote-api:v1.0.2-3
+    environment:
+      APP_PORT: 8080
+      APP_ID: 1
+      DB_HOST: smartvote-db-1
+      DB_NAME: smartvote
+      DB_USERNAME: root
+      DB_PASSWORD: smartvote
+    ports:
+      - 8081:8080
+    networks:
+      - smartvote
+  smartvote-db-1:
+    container_name: smartvote-db-1
+    image: mariadb:11.5.2-noble
+    volumes:
+      - ./db/data-1:/var/lib/mysql:Z
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_ROOT_PASSWORD: smartvote
+    ports:
+      - 33061:3306
+    networks:
+      - smartvote
+
+  smartvote-api-2:
+    container_name: smartvote-api-2
+    build: api
+    image: michaelrk02/smartvote-api:v1.0.2-3
+    environment:
+      APP_PORT: 8080
+      APP_ID: 2
+      DB_HOST: smartvote-db-2
+      DB_NAME: smartvote
+      DB_USERNAME: root
+      DB_PASSWORD: smartvote
+    ports:
+      - 8082:8080
+    networks:
+      - smartvote
+  smartvote-db-2:
+    container_name: smartvote-db-2
+    image: mariadb:11.5.2-noble
+    volumes:
+      - ./db/data-2:/var/lib/mysql:Z
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_ROOT_PASSWORD: smartvote
+    ports:
+      - 33062:3306
+    networks:
+      - smartvote
+
+  smartvote-api-3:
+    container_name: smartvote-api-3
+    build: api
+    image: michaelrk02/smartvote-api:v1.0.2-3
+    environment:
+      APP_PORT: 8080
+      APP_ID: 3
+      DB_HOST: smartvote-db-3
+      DB_NAME: smartvote
+      DB_USERNAME: root
+      DB_PASSWORD: smartvote
+    ports:
+      - 8083:8080
+    networks:
+      - smartvote
+  smartvote-db-3:
+    container_name: smartvote-db-3
+    image: mariadb:11.5.2-noble
+    volumes:
+      - ./db/data-3:/var/lib/mysql:Z
+      - ./db/init:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_ROOT_PASSWORD: smartvote
+    ports:
+      - 33063:3306
+    networks:
+      - smartvote
+  
+  smartvote-app:
+    container_name: smartvote-app
+    build: app
+    image: michaelrk02/smartvote-app:v1.0.0-1
+    environment:
+      NEXT_PUBLIC_DEFAULT_AGENT: localhost:8080
+    ports:
+      - 3000:3000
+    networks:
+      - smartvote
+
+networks:
+  smartvote:
