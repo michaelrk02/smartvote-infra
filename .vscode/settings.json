@@ -1,0 +1,10 @@
+{
+    "rest-client.environmentVariables": {
+        "local": {
+            "agent0": "http://localhost:8080",
+            "agent1": "http://localhost:8081",
+            "agent2": "http://localhost:8082",
+            "agent3": "http://localhost:8083"
+        }
+    }
+}
