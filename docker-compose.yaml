@@ -3,7 +3,7 @@ services:
   smartvote-api-0:
     container_name: smartvote-api-0
     build: api
-    image: michaelrk02/smartvote-api:v1.0.3-1
+    image: michaelrk02/smartvote-api:v1.0.5-1
     environment:
       APP_PORT: 8080
       APP_ID: 0
@@ -32,7 +32,7 @@ services:
   smartvote-api-1:
     container_name: smartvote-api-1
     build: api
-    image: michaelrk02/smartvote-api:v1.0.3-1
+    image: michaelrk02/smartvote-api:v1.0.5-1
     environment:
       APP_PORT: 8080
       APP_ID: 1
@@ -61,7 +61,7 @@ services:
   smartvote-api-2:
     container_name: smartvote-api-2
     build: api
-    image: michaelrk02/smartvote-api:v1.0.3-1
+    image: michaelrk02/smartvote-api:v1.0.5-1
     environment:
       APP_PORT: 8080
       APP_ID: 2
@@ -90,11 +90,11 @@ services:
   smartvote-api-3:
     container_name: smartvote-api-3
     build: api
-    image: michaelrk02/smartvote-api:v1.0.3-1
+    image: michaelrk02/smartvote-api:v1.0.5-1
     environment:
       APP_PORT: 8080
       APP_ID: 3
-      OPTIONS: ${OPTIONS}
+      OPTIONS: ${OPTIONS} ${OPTIONS_FAULTY}
       DB_HOST: smartvote-db-3
       DB_NAME: smartvote
       DB_USERNAME: root

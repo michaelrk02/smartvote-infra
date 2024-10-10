@@ -1,0 +1,2 @@
+#!/bin/bash
+ln -sf .env.$1 .env

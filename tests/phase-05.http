@@ -1,0 +1,19 @@
+### DATABASE RESET
+
+POST {{agent0}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 111111,
+    "candidateId": 1
+}
+
+###
+
+POST {{agent1}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 222222,
+    "candidateId": 1
+}

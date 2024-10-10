@@ -1,3 +1,7 @@
+### DATABASE RESET
+
+### AGENT 3 BYZANTINE FAULT : RECEIVER
+
 POST {{agent0}}/voting/vote
 Content-Type: application/json
 
@@ -8,31 +12,21 @@ Content-Type: application/json
 
 ###
 
-POST {{agent1}}/voting/vote
+POST {{agent0}}/voting/vote
 Content-Type: application/json
 
 {
     "token": 222222,
-    "candidateId": 1
-}
-
-###
-
-POST {{agent1}}/voting/vote
-Content-Type: application/json
-
-{
-    "token": 333333,
     "candidateId": 2
 }
 
 ###
 
-POST {{agent2}}/voting/vote
+POST {{agent0}}/voting/vote
 Content-Type: application/json
 
 {
-    "token": 444444,
+    "token": 333333,
     "candidateId": 3
 }
 
@@ -42,7 +36,7 @@ POST {{agent3}}/voting/vote
 Content-Type: application/json
 
 {
-    "token": 555555,
+    "token": 444444,
     "candidateId": 2
 }
 
@@ -52,8 +46,16 @@ POST {{agent3}}/voting/vote
 Content-Type: application/json
 
 {
-    "token": 666666,
-    "candidateId": 1
+    "token": 555555,
+    "candidateId": 3
 }
 
-### DATABASE DUMP #1
+###
+
+POST {{agent0}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 666666,
+    "candidateId": 2
+}

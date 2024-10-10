@@ -1,0 +1,51 @@
+### DATABASE RESET
+
+### AGENT 3 BYZANTINE FAULT : BROADCASTER
+
+POST {{agent3}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 111111,
+    "candidateId": 1
+}
+
+###
+
+POST {{agent3}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 222222,
+    "candidateId": 2
+}
+
+###
+
+POST {{agent3}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 333333,
+    "candidateId": 3
+}
+
+###
+
+POST {{agent0}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 444444,
+    "candidateId": 2
+}
+
+###
+
+POST {{agent0}}/voting/vote
+Content-Type: application/json
+
+{
+    "token": 555555,
+    "candidateId": 3
+}
